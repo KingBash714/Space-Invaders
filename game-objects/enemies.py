@@ -113,7 +113,22 @@ def create_form3(x_cen: float, y_start: float, spacing: float, e_pic: str)-> lis
             enemies.append(Enemy(x, y, e_pic))
    
 
-    return enemies  
+    return enemies 
+
+def create_form4(rows: int, cols: int, distance, x_start: float, y_start: float, e_pic: str)-> list[Enemy]:
+
+    #checkerboard pattern
+    enemies = []
+    distance = 2
+    
+    for i in range(rows):
+        for j in range(cols):
+            x = x_start + j*d
+            y = y_start - i*d
+            if (i + j) % 2 == 0:
+                enemies.append(Enemy(x,y,e_pic))
+    
+    return enemies
 
 def create_mystery(x_pos: float, y_pos: float, pik: str):
     blitzer = Enemy(x_pos, y_pos, pik)
