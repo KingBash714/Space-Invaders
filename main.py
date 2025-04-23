@@ -5,6 +5,7 @@ import enemies as en
 import missiles as ms
 from shooter import Shooter
 import gamewindow as gw
+import env
 
 def main() -> None:  # Need the return type for mypy to type-check the body
 
@@ -17,6 +18,7 @@ def main() -> None:  # Need the return type for mypy to type-check the body
     while True:
         enemies = en.load_level(lvl_num)
         while len(enemies) != 0:
+            env.draw_bunkers()
             v_x = animate_form(enemies)
             shooter.update_pos()
             for i in len(missiles):
